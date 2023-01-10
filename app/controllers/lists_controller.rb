@@ -14,15 +14,16 @@ class ListsController < ApplicationController
     #手順３dbに保存 (listインスタンスをdbに保存)
     list.save
 
-  　#手順４トップ画面へリダイレクト
-  　redirect_to '/top'
-  end　#createアクションの定義終了
+   #手順４トップ画面へリダイレクト
+    redirect_to '/top'
+  end #createアクションの定義終了
 
   def index
     @lists = List.all
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def edit
@@ -34,10 +35,9 @@ class ListsController < ApplicationController
   #requireは送られてきたデータの中からモデル名を指定してデータ絞り込む
   #permitはrequireで絞り込んだデータから、保存許可するカラムを指定する
   def list_params
-    params.require(:list).permit(:title, :body)
+   params.require(:list).permit(:title, :body)
     #formからのデータの内、保存するモデルは(listモデル).
     #保存するカラムは(titleとbody)
     #リストモデルの、タイトルと本文をｄｂに保存する
   end
-end
 end
