@@ -19,7 +19,7 @@ class ListsController < ApplicationController
   end #createアクションの定義終了
 
   def index
-    @lists = List.all
+    @lists = List.all  #DBのレコード全てを
   end
 
   def show
