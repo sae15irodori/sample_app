@@ -30,7 +30,7 @@ class ListsController < ApplicationController
   def edit
     @list =List.find(params[:id])  #保存したデータのうち、編集したいデータを探す（データはidで指定する）
   end
-  
+
   def update
     list = List.find(params[:id])
     list.update(list_params)       #
@@ -43,7 +43,7 @@ class ListsController < ApplicationController
   #requireは送られてきたデータの中からモデル名を指定してデータ絞り込む
   #permitはrequireで絞り込んだデータから、保存許可するカラムを指定する
   def list_params
-   params.require(:list).permit(:title, :body)
+   params.require(:list).permit(:title, :body, :image)
     #formからのデータの内、保存するモデルは(listモデル).
     #保存するカラムは(titleとbody)
     #リストモデルの、タイトルと本文をｄｂに保存する
