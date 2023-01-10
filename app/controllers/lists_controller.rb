@@ -19,11 +19,12 @@ class ListsController < ApplicationController
   end #createアクションの定義終了
 
   def index
-    @lists = List.all  #DBのレコード全てを
+    @lists = List.all  #DBのレコード全てを取得する
   end
 
   def show
-    @list = List.find(params[:id])
+    @list = List.find(params[:id])  #レコード１件だけ取得するからインスタンス変数は単数
+    #Lstモデルから探す、フォーム入力して保存したデータのうち、URlで指定したidのレコードを
   end
 
   def edit
