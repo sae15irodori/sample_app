@@ -15,7 +15,7 @@ class ListsController < ApplicationController
     list.save
 
    #手順４トップ画面へリダイレクト
-    redirect_to '/top'
+    redirect_to list_path(list.id)
   end #createアクションの定義終了
 
   def index
@@ -28,6 +28,13 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list =List.find(params[:id])  #保存したデータのうち、編集したいデータを探す（データはidで指定する）
+  end
+  
+  def update
+    list = List.find(params[:id])
+    list.update(list_params)
+    redirect_to list_path(list.id)
   end
 
   private
