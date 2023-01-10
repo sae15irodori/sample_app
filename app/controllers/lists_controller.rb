@@ -19,6 +19,7 @@ class ListsController < ApplicationController
   end　#createアクションの定義終了
 
   def index
+    @lists = List.all
   end
 
   def show
@@ -27,7 +28,7 @@ class ListsController < ApplicationController
   def edit
   end
 
- private
+  private
   #ストロングパラメータ
   #paramsはformから送られてくるデータ
   #requireは送られてきたデータの中からモデル名を指定してデータ絞り込む
@@ -39,4 +40,4 @@ class ListsController < ApplicationController
     #リストモデルの、タイトルと本文をｄｂに保存する
   end
 end
-end #これないとエラーになるなんで？
+end
