@@ -13,3 +13,62 @@
  *= require_tree .
  *= require_self
  */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  width: 90%;
+  padding: 15px 0;
+  margin: 30px auto 0;
+  text-align: center;/*h1中央揃え*/
+  border-top: solid 5px #000000;
+}
+
+header .headline{/*すべてのhtmlのhタグに共通する*/
+  font-size: 32px;
+}
+
+nav{
+  width: 880px;
+  margin: 0 auto;
+  border-top: solid 0.7px #000000;
+  border-bottom: solid 0.7px #000000;
+}
+
+.nav-list{   /*ulタグに設定*/
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-list-item{
+  list-style: none;/*リンク(aタグ)の下線削除*/
+  display: inline-block;/*リンクの文字を横並びにする*/
+  margin: 0 20px;
+}
+
+main {
+  width: 880px;
+  margin: 0 auto;
+}
+
+
+/*index.html.erbのcss*/
+.list-wrap { 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-box {
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+}
+
+.list-comment {
+  width: 200px;
+}
