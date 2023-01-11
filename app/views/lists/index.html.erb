@@ -1,22 +1,15 @@
-<h1>投稿一覧</h1> <!--html編集前-->
-
-<% @lists.each do |list| %>  <!--%の次に＝がないからこの分は表示されない-->
-<!--@listsでDB内のレコードデータ全て取得してる-->
-<!--eachメソッドでDB内のレコードデータ全てを順番に取得している-->
-<!--ブロック変数listにはその順番に取得したデータを格納してる-->
-
-  <p>タイトル</p>
-  <span><%= link_to list.title, list_path(list.id) %></span>
-  <!--上で、db内のレコードデータ全てを順番に取得した。そのうちtitleカラムのみ表示させる-->
-  <!--ここで表示されてるタイトルに、リンクを設定した-->
-  <!--list_pathで指定したidの詳細画面に移動できる-->
-  
-  <p>画像</p>
-  <% if list.image.attached? %> <!--リストモデルに画像存在してる？-->
-    <%= image_tag list.image, size: "200×200" %><!--画像存在してたらtrueとしてこれを返す-->
-  <% else %>
-    <%= image_tag 'no_image', size:"200×200" %><!--画像が存在してないならfalseとしてこれを返す-->
-  <% end %>
-  
+<div class="list-wrap">
+<% @lists.each do |list| %>
+  <div class="list-box">
+    <% if list.image.attached? %>
+      <%= image_tag list.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+    <div class="list-comment">
+      <span class="list-body"><%= list.body %></span><!--bodyカラムのこと-->
+      <span class="list-title"><%=link_to list.title, list_path(list.id) %></span>
+    </div>
+  </div>
 <% end %>
-<!--投稿のタイトルのみ表示される-->
+</div>
