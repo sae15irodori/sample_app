@@ -9,13 +9,14 @@ class ListsController < ApplicationController
     #手順１＆２（フォームに入力したデータを受け取るインスタンスを生成）
     #ビューファイルへの受け渡し不要だからローカル変数使ってる
     #変数istにList.newを格納。list_paramsはストロングパラメータのメソッド名
-    list = List.new(list_params)
+    @list = List.new(list_params)
 
     #手順３dbに保存 (listインスタンスをdbに保存)
-    list.save
-
-   #手順４トップ画面へリダイレクト
-    redirect_to list_path(list.id)
+    if @list.save                   #フォームにデータが保存されたら(保存するデータが存在していれば)
+      redirect_to list_path(list.id)#show画面詳細画面にリダイレクト
+    else          #フォームにデータ保存されなかったら(保存データ存在しなかったら)
+      render :new #新規投稿画面を再度表示
+    end
   end #createアクションの定義終了
 
   def index
