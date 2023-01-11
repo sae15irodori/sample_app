@@ -13,7 +13,7 @@ class ListsController < ApplicationController
 
     #手順３dbに保存 (listインスタンスをdbに保存)
     if @list.save                   #フォームにデータが保存されたら(保存するデータが存在していれば)
-      redirect_to list_path(list.id)#show画面詳細画面にリダイレクト
+      redirect_to list_path(@list.id)#show画面詳細画面にリダイレクト
     else          #フォームにデータ保存されなかったら(保存データ存在しなかったら)
       render :new #新規投稿画面を再度表示
     end

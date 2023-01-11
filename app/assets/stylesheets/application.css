@@ -20,6 +20,13 @@
   box-sizing: border-box;
 }
 
+
+header, h1, nav, .list-comment {
+  font-family: 'Kaushan', cursive, sans-serif;
+}
+
+
+
 header{
   width: 90%;
   padding: 15px 0;
@@ -67,8 +74,29 @@ main {
   width: 200px;
   height: 250px;
   margin: 10px;
+  position: relative;
 }
 
 .list-comment {
   width: 200px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.list-body{
+  display: block;
+  color: grey;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list-title{
+  display: block;/*長くなった時の為に？縦積みにする？*/
+  font-size: 18px;
+  overflow: hidden;/*タイトルが長くなったらはみ出た部分表示しない*/
+  white-space: nowrap;/*はみ出た部分改行しないし表示もしない*/
+  text-overflow: ellipsis;/*テキストがはみ出てたら...まだ文続くよという記号表示*/
 }
